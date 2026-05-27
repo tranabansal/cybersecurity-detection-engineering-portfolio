@@ -1,0 +1,11 @@
+DeviceProcessEvents
+| where FileName == "powershell.exe"
+| where ProcessCommandLine has_any (
+    "-enc",
+    "EncodedCommand",
+    "IEX",
+    "Invoke-Expression",
+    "DownloadString"
+)
+| project TimeGenerated, DeviceName, ProcessCommandLine, InitiatingProcessFileName
+| order by TimeGenerated desc
