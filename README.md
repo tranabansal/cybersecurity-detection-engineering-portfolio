@@ -30,7 +30,7 @@ Simulated SOC incident reports including timeline and mitigation steps.
 
 🧨 Attack Flow Diagram
 
-(soc-attck-simiulation/Attack-Flow.png)
+(soc-attack-simiulation/Attack-Flow.png)
 
 This diagram shows the full simulated attack chain from initial phishing to potential system compromise.
 
