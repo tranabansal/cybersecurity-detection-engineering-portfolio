@@ -1,0 +1,50 @@
+title: Suspicious PowerShell Execution
+
+id: 33333333-3333-3333-3333-333333333333
+
+status: experimental
+
+description: Detects suspicious PowerShell execution using encoded commands or common attacker techniques.
+
+author: yourname
+
+date: 2026-05-27
+
+references:
+  - https://attack.mitre.org/techniques/T1059/001/
+
+logsource:
+  category: process_creation
+  product: windows
+
+detection:
+
+  selection:
+    Image|endswith:
+      - '\powershell.exe'
+
+    CommandLine|contains:
+      - '-enc'
+      - 'EncodedCommand'
+      - 'IEX'
+      - 'Invoke-Expression'
+      - 'DownloadString'
+      - 'Hidden'
+
+  condition: selection
+
+fields:
+  - CommandLine
+  - ParentImage
+  - User
+
+falsepositives:
+  - Administrative scripts
+  - Legitimate automation tasks
+  - IT management tools
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
