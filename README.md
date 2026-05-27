@@ -28,6 +28,12 @@ Hypothesis-driven investigations based on attacker behavior.
 Incident Response
 Simulated SOC incident reports including timeline and mitigation steps.
 
+🧨 Attack Flow Diagram
+
+(soc-attck-simiulation/Attack-Flow.png)
+
+This diagram shows the full simulated attack chain from initial phishing to potential system compromise.
+
 🧠 Methodology
 All detections are mapped to MITRE ATT&CK framework and designed with:
 - Detection logic
