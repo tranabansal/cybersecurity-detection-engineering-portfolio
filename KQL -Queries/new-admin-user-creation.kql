@@ -1,0 +1,8 @@
+SecurityEvent
+| where EventID == 4720   // user created
+| join kind=leftouter (
+    SecurityEvent
+    | where EventID == 4672   // special privileges assigned
+) on TargetUserName
+| project TimeGenerated, TargetUserName, SubjectUserName, Computer
+| order by TimeGenerated desc
